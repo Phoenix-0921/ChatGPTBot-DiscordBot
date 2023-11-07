@@ -1,13 +1,14 @@
 import os
+from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 import openai
 
-# 设置你的 Discord 机器人的令牌
-token = os.getenv('DISCORD_TOKEN')
+load_dotenv()
 
-# 设置你的 ChatGPT API Token
-openai.api_key = os.getenv('OPENAI_API')
+# 设置你的 Discord 机器人的令牌
+token = os.environ.get('DiscordToken')
+openai.api_key = os.environ.get('OPENAI_API')
 
 # intents是要求機器人的權限
 intents = discord.Intents.all()

@@ -11,5 +11,5 @@ DiscordBot2.py
 帶有前綴/hello 會觸發回應Hello,world
 
 DiscordChatGPT.py已完成
-從.env.example 填入
+從.env 填入
 Discord機器人Token以及ChatGPT的API 即可執行開始使用

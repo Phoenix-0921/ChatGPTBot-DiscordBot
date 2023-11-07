@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9-alpine
 
 # 設置工作目錄
 WORKDIR /DiscordBot

@@ -6,23 +6,24 @@ import openai
 
 load_dotenv()
 
-# 设置你的 Discord 机器人的令牌
+# 需要創立.env 將DiscordToken 和 OPENAI_API 填入
 token = os.environ.get('DiscordToken')
 openai.api_key = os.environ.get('OPENAI_API')
 
 # intents是要求機器人的權限
 intents = discord.Intents.all()
-# 创建 Discord 客户端
+# 建立 Discord 機器人連接,給權限
 bot = commands.Bot(command_prefix='/',intents = intents)
 
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
     
+# /ask 是前綴字 需輸入才能做詢問
 @bot.command()
 async def ask(ctx, *, question):
     if question:
-        # 使用 ChatGPT 进行对话
+        # 使用 ChatGPT 
         response = openai.chat.completions.create(
         model="gpt-3.5-turbo",  # 使用 ChatGPT 引擎
         messages=[
@@ -34,9 +35,9 @@ async def ask(ctx, *, question):
 
         answer = response.choices[0].message.content
 
-        # 将 ChatGPT 的回答发送回 Discord
+        # 將回答發送回去Discord
         await ctx.send(answer)
     else:
-        await ctx.send("请提供问题")
+        await ctx.send("請再次詢問")
 
 bot.run(token)

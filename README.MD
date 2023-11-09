@@ -13,6 +13,8 @@ Discord機器人Token以及ChatGPT的API 即可執行開始使用
 PS.ChatGPT 關於 python opai 模組只支援到0.27 
    目前最新版本為1.1.1 
 
+Discord.py 只支援到 python3.10 以後版本不支援
+
 提問語法已從
 openai.Completion.create
 改成
